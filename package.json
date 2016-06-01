@@ -4,7 +4,7 @@
   "description": "A small html tag generator for creating fragments of markup.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "node_modules/.bin/mocha test"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,9 @@
     "tags"
   ],
   "author": "Daniel Bush",
-  "license": "BSD-2-Clause"
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
 }
