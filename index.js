@@ -11,8 +11,19 @@ module.exports = {
 };
 
 
-function makeTag () {
+
+/**
+ * Make a function that returns a tag with content in it.
+ *
+ * @param {string} tagName - Name of tag.
+ * @returns {function} Function that returns Html output.
+ */
+function makeTag (tagName) {
   return function () {
-    return '<div>some text</div>';
+    let content = '';
+    Array.from(arguments).forEach((arg) => {
+      content += arg;
+    });
+    return `<${tagName}>${content}</${tagName}>`;
   };
 }
