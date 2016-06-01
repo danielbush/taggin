@@ -1,0 +1,20 @@
+{
+  "name": "taggin",
+  "version": "0.0.1",
+  "description": "A small html tag generator for creating fragments of markup.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "TBC"
+  },
+  "keywords": [
+    "html",
+    "xml",
+    "tags"
+  ],
+  "author": "Daniel Bush",
+  "license": "BSD-2-Clause"
+}
