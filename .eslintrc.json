@@ -9,6 +9,7 @@
     "jsx": true
   },
   "globals": {
+    "module": true,
     "describe": true,
     "it": true
   },
