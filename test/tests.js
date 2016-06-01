@@ -30,6 +30,18 @@ describe('taggin', function () {
         .to.equal('<div>some <em>text</em> here</div>');
     });
 
+    it('can set an id using array-string format', function () {
+      let div = tag.make('div');
+      expect(div(['#abc'], 'some text'))
+        .to.equal('<div id="abc">some text</div>');
+    });
+
+    it('can set a class using array-string format', function () {
+      let div = tag.make('div');
+      expect(div(['.abc'], 'some text'))
+        .to.equal('<div class="abc">some text</div>');
+    });
+
   });
 
 });
