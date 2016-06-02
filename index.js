@@ -15,8 +15,8 @@ module.exports = {
 /**
  * Make a function that returns a tag with content in it.
  *
- * @param {string} tagName - Name of tag.
- * @returns {function} Function that returns Html output.
+ * @param   {String}   tagName - Name of tag.
+ * @returns {Function} Function that returns Html output.
  */
 function makeTag (tagName) {
   return function () {
@@ -44,6 +44,14 @@ function makeTag (tagName) {
   };
 }
 
+/**
+ * Generates opening tag with id and class attributes.
+ *
+ * @param   {String} tagName
+ * @param   {String} id
+ * @param   {Array}  classes - An array of classes.
+ * @returns {String} The tag with angle brackets.
+ */
 function makeStartTag (tagName, id, classes) {
   if (id) {
     tagName = `${tagName} id="${id}"`;
@@ -54,6 +62,13 @@ function makeStartTag (tagName, id, classes) {
   return tagName;
 }
 
+/**
+ * Takes a string like "#id.class1.class2" and extracts the classes and id.
+ *
+ * @throws  Will throw error if more than 1 id found.
+ * @param   {String} str - A string like "#id.class1.class2".
+ * @returns {Object} An object with 'id' {null|String} and 'classes' {Array<String>} properties.
+ */
 function extractIdAndClasses (str) {
   let id = null,
       classes = null,
