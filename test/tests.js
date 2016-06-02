@@ -42,6 +42,42 @@ describe('taggin', function () {
         .to.equal('<div class="abc">some text</div>');
     });
 
+    it('can set a both an id and a class using array-string format', function () {
+      let div = tag.make('div');
+      expect(div(['#def.abc'], 'some text'))
+        .to.equal('<div id="def" class="abc">some text</div>');
+    });
+
+    it('can set multiple classes', function () {
+      let div = tag.make('div');
+      expect(div(['.def.abc'], 'some text'))
+        .to.equal('<div class="def abc">some text</div>');
+    });
+
+    context('multiple ids', function () {
+
+      it('will complain if multiple ids', function () {
+        let div = tag.make('div');
+        expect(() => div(['#def#abc'], 'some text'))
+          .to.throw(/more than one id/i);
+      });
+
+      it('will handle multiple ids 1', function () {
+        let div = tag.make('div');
+        expect(() => div(['.abc#def#abc'], 'some text'))
+          .to.throw(/more than one id/i);
+      });
+
+    });
+
+    it('treats leading non-dot as class', function () {
+      let div = tag.make('div');
+      expect(div(['def'], 'some text'))
+        .to.equal('<div class="def">some text</div>');
+    });
+
+    // it can set attributes using object literal format
+
   });
 
 });

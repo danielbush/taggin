@@ -56,13 +56,20 @@ function makeStartTag (tagName, id, classes) {
 
 function extractIdAndClasses (str) {
   let id = null,
-      classes = [],
-      ids = str.split('#');
-  if (ids.length >= 2) {
-    id = ids[1];
-  }
-  else { // no id
-    classes = str.split('.').filter((c) => c !== '');
-  }
+      classes = null,
+      removeIdFromString = (str) => {
+        let parts = str.split('#');
+        if (parts.length > 2) throw new Error('More than one id detected');
+        if (parts.length === 2) {
+          if (id) throw new Error('More than one id detected');
+          id = parts[1];
+        }
+        return parts[0];
+      };
+
+  classes = str
+              .split('.')
+              .map(c => removeIdFromString(c))
+              .filter(c => (c !== ''));
   return { id: id, classes: classes };
 }
