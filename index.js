@@ -23,7 +23,7 @@ function makeTag (tagName) {
     let content = '',
         id = null,
         classes = [],
-        attrs = [];
+        attrs = {};
     let startTag = null;
     Array.from(arguments).forEach((arg) => {
       if (arg instanceof Array) {
@@ -34,6 +34,9 @@ function makeTag (tagName) {
             classes = result.classes;
           }
         });
+      }
+      else if (arg instanceof Object) {
+        Object.assign(attrs, arg);
       }
       else {
         content += arg;
@@ -50,14 +53,20 @@ function makeTag (tagName) {
  * @param   {String} tagName
  * @param   {String} id
  * @param   {Array}  classes - An array of classes.
+ * @param   {Object} attrs   - An object literal of attributes and values.
  * @returns {String} The tag with angle brackets.
  */
-function makeStartTag (tagName, id, classes) {
+function makeStartTag (tagName, id, classes, attrs) {
   if (id) {
     tagName = `${tagName} id="${id}"`;
   }
   if (classes && classes.length > 0) {
     tagName = `${tagName} class="${classes.join(' ')}"`;
+  }
+  if (attrs) {
+    for (let attr in attrs) {
+      tagName = `${tagName} ${attr}="${attrs[attr]}"`;
+    }
   }
   return tagName;
 }

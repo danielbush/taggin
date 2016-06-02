@@ -76,7 +76,17 @@ describe('taggin', function () {
         .to.equal('<div class="def">some text</div>');
     });
 
-    // it can set attributes using object literal format
+    it('can set attributes using object literal format', function () {
+      let div = tag.make('div');
+      expect(div({ style: 'font-weight: bold;' }, 'some text'))
+        .to.equal('<div style="font-weight: bold;">some text</div>');
+    });
+
+    it('can put the object literal to the back', function () {
+      let div = tag.make('div');
+      expect(div('some text', { style: 'font-weight: bold;' }))
+        .to.equal('<div style="font-weight: bold;">some text</div>');
+    });
 
   });
 
