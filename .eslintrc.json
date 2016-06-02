@@ -11,6 +11,7 @@
   "globals": {
     "module": true,
     "describe": true,
+    "context": true,
     "it": true
   },
   "rules": {
