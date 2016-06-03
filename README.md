@@ -10,7 +10,7 @@ It is written in es6.
  
 ```js
 const tag = require('taggin');
-let div = tag.make('div');
+let div = tag.makeTag('div');
 
 let str = div(
   'some text ',
@@ -24,9 +24,9 @@ let str = div(
 
 ## Attributes
 
-```js
-
 For classes and id:
+
+```js
 
 div(['#id123.container'],
   p('first para').class('first'),
@@ -50,7 +50,7 @@ Currently this library does not attempt to sanitize inputs.
 You could use a library like ```sanitize-html``` eg
 
 ```js
-    let div = make('div');
+    let div = makeTag('div');
     let str = div(sanitize(untrustedHTML));
 ```
 
