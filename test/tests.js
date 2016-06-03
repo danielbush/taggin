@@ -82,10 +82,22 @@ describe('taggin', function () {
         .to.equal('<div style="font-weight: bold;">some text</div>');
     });
 
+    it('can handle multiple object literal formats', function () {
+      let div = tag.makeTag('div');
+      expect(div({ a: '1', b: '2' }, 'some text'))
+        .to.equal('<div a="1" b="2">some text</div>');
+    });
+
     it('can put the object literal to the back', function () {
       let div = tag.makeTag('div');
       expect(div('some text', { style: 'font-weight: bold;' }))
         .to.equal('<div style="font-weight: bold;">some text</div>');
+    });
+
+    it('can handle array-string and object literal formats', function () {
+      let div = tag.makeTag('div');
+      expect(div(['#def.abc.xyz'], 'some text', { style: 'font-weight: bold;' }))
+        .to.equal('<div id="def" class="abc xyz" style="font-weight: bold;">some text</div>');
     });
 
   });
