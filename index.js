@@ -7,7 +7,7 @@ This program is distributed under the terms of the BSD-2-Clause License.
 'use strict';
 
 module.exports = {
-  make: makeTag
+  makeTag: makeTag
 };
 
 
