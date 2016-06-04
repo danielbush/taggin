@@ -1,5 +1,7 @@
 # Taggin - Tag / markup Generator
 
+[![Build Status](https://travis-ci.org/danielbush/taggin.svg?branch=master)](https://travis-ci.org/danielbush/taggin)
+
 A really simple way to generate tags.
 
 This library was written to help create markup fragments for use in tests.
