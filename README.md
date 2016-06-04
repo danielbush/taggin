@@ -31,7 +31,7 @@ For classes and id:
 ```js
 
 div(['#id123.container'],
-  p('first para').class('first'),
+  p('first para'),
   p(['.highlight'], 'second para')
 );
 
@@ -39,7 +39,7 @@ For other attributes, use an object literal:
 
 ```js
 
-div(['#id123.container', { style: '...' }],
+div(['#id123.container'], { style: '...' }
   ...
 );
 
