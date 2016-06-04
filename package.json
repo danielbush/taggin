@@ -1,6 +1,6 @@
 {
   "name": "taggin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A small html tag generator for creating fragments of markup.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "TBC"
+    "url": "https://github.com/danielbush/taggin"
   },
   "keywords": [
     "html",
